@@ -22,10 +22,10 @@
 //import java.util.ArrayList;
 //import java.util.List;
 //
-//@WebServlet({ "/1.mini/board/listBoardAuction", "/1.mini/board/insertBoardAuction", "/1.mini/board/updateBoardAuction",
-//		"/1.mini/board/deleteBoardAuction", "/1.mini/board/detailBoardAuction", "/1.mini/board/listBoardBuy",
-//		"/1.mini/board/insertBoardBuy", "/1.mini/board/updateBoardBuy", "/1.mini/board/deleteBoardBuy",
-//		"/1.mini/board/detailBoardBuy"})
+//@WebServlet({ "/mini/board/listBoardAuction", "/mini/board/insertBoardAuction", "/mini/board/updateBoardAuction",
+//		"/mini/board/deleteBoardAuction", "/mini/board/detailBoardAuction", "/mini/board/listBoardBuy",
+//		"/mini/board/insertBoardBuy", "/mini/board/updateBoardBuy", "/mini/board/deleteBoardBuy",
+//		"/mini/board/detailBoardBuy"})
 //public class BoardAdviceController extends HttpServlet {
 //	private static final long serialVersionUID = 1L;
 //	private BoardAuctionService b1Svc = new BoardAuctionServiceImpl();
@@ -47,7 +47,7 @@
 //		int page = 0;
 //
 //		switch (action) {
-//		case "listBoardAuction": {// /mp/1.mini/board/list?p=1&f=title&q=검색
+//		case "listBoardAuction": {// /mp/mini/board/list?p=1&f=title&q=검색
 //			page_ = request.getParameter("p");
 //			field = request.getParameter("f");
 //			query = request.getParameter("q");
@@ -72,7 +72,7 @@
 //			rd.forward(request, response);
 //			break;
 //		}
-//		case "listBoardBuy": {// /mp/1.mini/board/list?p=1&f=title&q=검색
+//		case "listBoardBuy": {// /mp/mini/board/list?p=1&f=title&q=검색
 //			page_ = request.getParameter("p");
 //			field = request.getParameter("f");
 //			query = request.getParameter("q");
@@ -102,7 +102,7 @@
 //		case "insertBoardAuction": {
 //
 //			if (sessUid == null || sessUid.equals("")) {
-//				response.sendRedirect("/mp/1.mini/user/login");
+//				response.sendRedirect("/mp/mini/user/login");
 //				// 이것만 있으면 오류 코드 - sendRedirect와 forward 중 한번만 쓸 수 있음.
 //				break; // 이후에 forward 를 할 수 없게 함.
 //			}
@@ -114,14 +114,14 @@
 //				content = request.getParameter("content");
 //				board3 = new Board3(title, content, sessUid);
 //				b1Svc.insertBoard(board3);
-//				response.sendRedirect("/mp/1.mini/board/list?p=1");
+//				response.sendRedirect("/mp/mini/board/list?p=1");
 //			}
 //			break;
 //		}
 //		case "insertBoardBuy": {
 //
 //			if (sessUid == null || sessUid.equals("")) {
-//				response.sendRedirect("/mp/1.mini/user/login");
+//				response.sendRedirect("/mp/mini/user/login");
 //				// 이것만 있으면 오류 코드 - sendRedirect와 forward 중 한번만 쓸 수 있음.
 //				break; // 이후에 forward 를 할 수 없게 함.
 //			}
@@ -133,7 +133,7 @@
 //				content = request.getParameter("content");
 //				board3 = new Board3(title, content, sessUid);
 //				b2Svc.insertBoard(board3);
-//				response.sendRedirect("/mp/1.mini/board/list?p=1");
+//				response.sendRedirect("/mp/mini/board/list?p=1");
 //			}
 //			break;
 //		}
@@ -178,7 +178,7 @@
 //			field = (String) session.getAttribute("field");
 //			query = (String) session.getAttribute("query");
 //			query = URLEncoder.encode(query, "utf-8");
-//			response.sendRedirect("/mp/1.mini/board/list?p=" + page + "&f=" + field + "&q=" + query);
+//			response.sendRedirect("/mp/mini/board/list?p=" + page + "&f=" + field + "&q=" + query);
 //			break;
 //		}
 //		case "deleteBoardBuy": {
@@ -188,7 +188,7 @@
 //			field = (String) session.getAttribute("field");
 //			query = (String) session.getAttribute("query");
 //			query = URLEncoder.encode(query, "utf-8");
-//			response.sendRedirect("/mp/1.mini/board/list?p=" + page + "&f=" + field + "&q=" + query);
+//			response.sendRedirect("/mp/mini/board/list?p=" + page + "&f=" + field + "&q=" + query);
 //			break;
 //		}
 //		
@@ -207,7 +207,7 @@
 //				board3 = new Board3(bid, title, content);
 //
 //				b1Svc.updateBoard(board3);
-//				response.sendRedirect("/mp/1.mini/board/detail?bid=" + bid + "&uid=" + uid);
+//				response.sendRedirect("/mp/mini/board/detail?bid=" + bid + "&uid=" + uid);
 //			}
 //			break;
 //		}
@@ -226,7 +226,7 @@
 //				board3 = new Board3(bid, title, content);
 //
 //				b2Svc.updateBoard(board3);
-//				response.sendRedirect("/mp/1.mini/board/detail?bid=" + bid + "&uid=" + uid);
+//				response.sendRedirect("/mp/mini/board/detail?bid=" + bid + "&uid=" + uid);
 //			}
 //			break;
 //		}

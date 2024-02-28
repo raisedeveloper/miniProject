@@ -18,7 +18,7 @@
           <div class="card-body">
             <div class="card-title"><h3><strong>로그인</strong></h3></div>
             <hr>
-            <form action="/mp/1.mini/user/login" method="post">
+            <form action="/mp/mini/user/login" method="post">
               <table class="table table-borderless">
                 <tr>
                   <td style="width: 45%;"><label class="col-form-label">사용자 ID</label></td>
@@ -38,7 +38,7 @@
             </form>
             <p class="mt-3">
               <span class="me-3">사용자 계정이 없으신가요?</span>
-              <a href="/mp/1.mini/user/register">사용자 가입</a>
+              <a href="/mp/mini/user/register">사용자 가입</a>
             </p>
             <div class="mt-3 mb-3">
             
