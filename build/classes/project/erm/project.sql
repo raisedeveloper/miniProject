@@ -2,8 +2,9 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Drop Tables */
 
-DROP TABLE IF EXISTS boardAdvice;
 DROP TABLE IF EXISTS BoardAuction;
+DROP TABLE IF EXISTS BoardBuy;
+DROP TABLE IF EXISTS Community;
 DROP TABLE IF EXISTS equipment;
 DROP TABLE IF EXISTS users;
 
@@ -11,20 +12,6 @@ DROP TABLE IF EXISTS users;
 
 
 /* Create Tables */
-
-CREATE TABLE boardAdvice
-(
-	bid int NOT NULL AUTO_INCREMENT,
-	uid varchar(12) NOT NULL,
-	title varchar(256) NOT NULL,
-	content varchar(4000),
-	modTime datetime DEFAULT CURRENT_TIMESTAMP,
-	isDeleted int DEFAULT 0,
-	viewCount int DEFAULT 0,
-	replyCount int DEFAULT 0,
-	PRIMARY KEY (bid)
-);
-
 
 CREATE TABLE BoardAuction
 (
@@ -38,6 +25,36 @@ CREATE TABLE BoardAuction
 	numOfCompany int,
 	process int,
 	isDeleted int,
+	PRIMARY KEY (bid)
+);
+
+
+CREATE TABLE BoardBuy
+(
+	bid int NOT NULL AUTO_INCREMENT,
+	uid varchar(12) NOT NULL,
+	applTime datetime NOT NULL,
+	nickName varchar(16),
+	processTitle varchar(64),
+	processContent varchar(256),
+	avgPrice int,
+	numOfCompany int,
+	process int,
+	isDeleted int,
+	PRIMARY KEY (bid)
+);
+
+
+CREATE TABLE Community
+(
+	bid int NOT NULL AUTO_INCREMENT,
+	uid varchar(12) NOT NULL,
+	title varchar(256) NOT NULL,
+	content varchar(4000),
+	modTime datetime DEFAULT CURRENT_TIMESTAMP,
+	isDeleted int DEFAULT 0,
+	viewCount int DEFAULT 0,
+	replyCount int DEFAULT 0,
 	PRIMARY KEY (bid)
 );
 
@@ -69,7 +86,7 @@ CREATE TABLE users
 
 /* Create Foreign Keys */
 
-ALTER TABLE boardAdvice
+ALTER TABLE BoardAuction
 	ADD FOREIGN KEY (uid)
 	REFERENCES users (uid)
 	ON UPDATE RESTRICT
@@ -77,7 +94,15 @@ ALTER TABLE boardAdvice
 ;
 
 
-ALTER TABLE BoardAuction
+ALTER TABLE BoardBuy
+	ADD FOREIGN KEY (uid)
+	REFERENCES users (uid)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE Community
 	ADD FOREIGN KEY (uid)
 	REFERENCES users (uid)
 	ON UPDATE RESTRICT

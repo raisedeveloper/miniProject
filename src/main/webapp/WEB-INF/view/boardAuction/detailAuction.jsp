@@ -24,7 +24,7 @@ function deleteFunc(bid) {
 <body>
 	<%@ include file="../common/_top.jspf"%>
 
-	<div class="container" style="margin-top: 150px">
+	<div class="container" style="margin-top: 50px">
 		<div class="row">
 
 			<!-- ============본문영역============ -->

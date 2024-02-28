@@ -24,7 +24,7 @@ td, th {
 <body>
 	<%@ include file="../common/_top.jspf"%>
 
-	<div class="container" style="margin-top: 150px">
+	<div class="container" style="margin-top: 50px">
 		<div class="row">
 
 			<div class="col-9">
@@ -32,10 +32,10 @@ td, th {
 					<tr>
 						<td style="width: 52%; text-align: left">
 							<h3>
-								<strong class="me-5">역경매 항목</strong> <span
+								<strong class="me-5"><i class="fa-solid fa-person-skiing" style="padding-right: 10px; "></i> 역경매 - 렌탈</strong> <span
 									style="font-size: 16px"><a
 									href="/mp/mini/board/insertAuction"><i
-										class="fa-solid fa-pen-to-square"></i> 글 쓰기</a></span>
+										class="fa-solid fa-pen-to-square"></i>렌탈 등록</a></span>
 							</h3>
 						</td>
 						<td style="width: 16%"><select class="form-control"
