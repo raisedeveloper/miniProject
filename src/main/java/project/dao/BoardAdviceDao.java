@@ -32,9 +32,8 @@ public class BoardAdviceDao {
 	
 	public BoardAdvice getBoardAdvice(int bid) {
 		Connection conn = getConnection();
-		String sql = "SELECT b.*, u.uname FROM board b"
-					+ "	JOIN users u ON b.uid=u.uid"
-					+ "	WHERE b.bid=?";
+		String sql = "SELECT * FROM boardadvice"
+					+ "	WHERE bid=?";
 		BoardAdvice boardAd = null;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -44,8 +43,8 @@ public class BoardAdviceDao {
 			
 			while (rs.next()) {
 				boardAd = new BoardAdvice(rs.getInt(1), rs.getString(2), rs.getString(3),
-						rs.getString(4), rs.getString(5), LocalDate.parse(rs.getString(6)),
-						rs.getInt(7), rs.getInt(8), rs.getInt(9));
+						rs.getString(4), LocalDate.parse(rs.getString(5).split(" ")[0]),
+						rs.getInt(6), rs.getInt(7), rs.getInt(8));
 			}
 			rs.close(); pstmt.close(); conn.close();
 		} catch (Exception e) {
@@ -58,13 +57,12 @@ public class BoardAdviceDao {
 	// query 값은 검색어
 	public List<BoardAdvice> getBoardAdviceList(String field, String query, int num, int offset) {
 		Connection conn = getConnection();
-		String sql = "SELECT b.*, u.uname FROM board b"
-					+ "	JOIN users u ON b.uid=u.uid"
-					+ "	WHERE b.isDeleted=0 AND " + field + " LIKE ?"
+		String sql = "SELECT * FROM boardadvice"
+					+ " where " + field + " like ?"
 					+ "	ORDER BY bid DESC "
 					+ "	LIMIT ? OFFSET ?";
 		List<BoardAdvice> list = new ArrayList<BoardAdvice>();
-		
+		BoardAdvice boardAd = null;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, query);
@@ -73,10 +71,10 @@ public class BoardAdviceDao {
 			
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				BoardAdvice boardAd = new BoardAdvice(rs.getInt(1), rs.getString(2), rs.getString(3),
-						rs.getString(4), rs.getString(5), LocalDate.parse(rs.getString(6)),
-						rs.getInt(7), rs.getInt(8), rs.getInt(9));
-				
+				boardAd = new BoardAdvice(rs.getInt(1), rs.getString(2), rs.getString(3),
+						rs.getString(4), LocalDate.parse(rs.getString(5).split(" ")[0]),
+						rs.getInt(6), rs.getInt(7), rs.getInt(8));
+				System.out.println(boardAd);
 				list.add(boardAd);
 			}
 			rs.close(); pstmt.close(); conn.close();
@@ -88,7 +86,7 @@ public class BoardAdviceDao {
 	
 	public void insertBoardAdvice(BoardAdvice boardAd) {
 		Connection conn = getConnection();
-		String sql = "insert into board values (default, ?, ?, ?, default, default, default, default)";
+		String sql = "insert into boardadvice values (default, ?, ?, ?, default, default, default, default)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, boardAd.getTitle());
@@ -104,7 +102,7 @@ public class BoardAdviceDao {
 	
 	public void updateBoardAdvice(BoardAdvice boardAd) {
 		Connection conn = getConnection();
-		String sql = "update board set title=?, content=?, modTime=now() where bid=?";
+		String sql = "update boardadvice set title=?, content=?, modTime=now() where bid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, boardAd.getTitle());
@@ -120,7 +118,7 @@ public class BoardAdviceDao {
 	
 	public void deleteBoardAdvice(int bid) {
 		Connection conn = getConnection();
-		String sql = "update board set isDeleted=1 where bid=?";
+		String sql = "delete boardadvice where bid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bid);
@@ -135,7 +133,7 @@ public class BoardAdviceDao {
 	// field 값은 view 또는 reply
 	public void increaseCount(String field, int bid) {
 		Connection conn = getConnection();
-		String sql = "UPDATE board SET " + field + "Count=" + field + "Count+1 WHERE bid=?";
+		String sql = "UPDATE boardadvice SET " + field + "Count=" + field + "Count+1 WHERE bid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bid);
@@ -150,9 +148,9 @@ public class BoardAdviceDao {
 	public int getBoardAdviceCount(String field, String query) {
 		Connection conn = getConnection();
 		query = "%" + query + "%";
-		String sql = "SELECT COUNT(bid) FROM board"
-				+ "  JOIN users ON board.uid=users.uid"
-				+ "  WHERE board.isDeleted=0 and " + field + " LIKE ?";
+		String sql = "SELECT COUNT(bid) FROM boardadvice"
+				+ "  JOIN users ON boardadvice.uid=users.uid"
+				+ "  WHERE " + field + " LIKE ?";
 		int count = 0;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);

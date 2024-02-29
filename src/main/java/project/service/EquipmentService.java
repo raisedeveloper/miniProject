@@ -5,7 +5,7 @@ import java.util.List;
 import project.entity.Equipment;
 
 public interface EquipmentService {
-	public static final int COUNT_PER_PAGE = 8;
+	public static final int COUNT_PER_PAGE = 20;
 	
 	Equipment getEquipmentByInum(int inum);
 	

@@ -16,7 +16,7 @@
 		<div class="row">
 			<div class="col-9">
 				<h3>
-					<strong>사용자 수정1</strong>
+					<strong>사용자 수정</strong>
 				</h3>
 				<hr>
 				<div class="row">

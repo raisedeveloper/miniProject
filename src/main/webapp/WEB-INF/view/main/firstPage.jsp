@@ -23,7 +23,7 @@ td, th {
 <body>
 	<%@ include file="../common/_topfirst.jspf"%>
 
-	<img src="/mp/img/mainPageIMG.png" style="width: 120%;">
+	<img src="/mp/img/mainPageIMG.png" style="width: 100%;">
 	
 	<%@ include file="../common/_bottom.jspf"%>
 

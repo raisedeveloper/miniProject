@@ -35,21 +35,23 @@ td, th {
 					<tr>
 						<td style="width: 52%; text-align: left">
 							<h3>
-								<strong class="me-5"><i class="fa-solid fa-person-skiing" style="padding-right: 10px; "></i> 역경매 - 렌탈</strong> <span
-									style="font-size: 16px">
-									<a href="/mp/mini/board/insertAuction"><i
-										class="fa-solid fa-pen-to-square"></i>렌탈 등록</a></span>
+								<strong class="me-5"><i class="fa-solid fa-person-skiing" style="padding-right: 10px; "></i> 역경매 - 렌탈</strong>
+								<span style="font-size: 16px">
+									<a href="/mp/mini/board/listAuction"><i class="fa-solid fa-list"></i></i>전체 리스트</a>
+									<a href="/mp/mini/board/insertAuction" style="margin: 15px"><i class="fa-solid fa-pen-to-square"></i>렌탈 등록</a>
+								</span>
 							</h3>
 						</td>
-						<td style="width: 16%"><select class="form-control"
-							id="field">
+						<td style="width: 16%">
+							<select class="form-control" id="field">
 								<option value="uid" ${field eq 'uid' ? 'selected' : ''}>작성자</option>
 								<option value="processTitle"
 									${field eq 'processTitle' ? 'selected' : ''}>제목</option>
 								<option value="processContent"
 									${field eq 'processContent' ? 'selected' : ''}>내용</option>
 
-						</select></td>
+							</select>
+						</td>
 						<td style="width: 24%">
 							<c:if test="${empty query}">
 								<input class="form-control" type="text" id="query"
@@ -64,7 +66,6 @@ td, th {
 							<button class="btn btn-outline-primary" onclick="search()">검색</button>
 						</td>
 					</tr>
-
 				</table>
 				<hr>
 
@@ -86,13 +87,17 @@ td, th {
 							<td><a href="/mp/mini/board/detailAuction?bid=${board.bid}">${board.processTitle}</a>
 							<td>${board.avgPrice}</td>
 							<td>${board.numOfCompany}</td>
-							<td><c:if test="${board.process eq 0}">
+							<td>
+								<c:if test="${board.process eq 0}">
 									<span style="color: black; font-weight: bolder;">입찰 진행</span>
-								</c:if> <c:if test="${board.process eq 1}">
+								</c:if> 
+								<c:if test="${board.process eq 1}">
 									<span style="color: gray; font-weight: bolder;">입찰 취소</span>
-								</c:if> <c:if test="${board.process eq 2}">
+								</c:if> 
+								<c:if test="${board.process eq 2}">
 									<span style="color: purple; font-weight: bolder;">거래 성사</span>
-								</c:if></td>
+								</c:if>
+							</td>
 						</tr>
 					</c:forEach>
 				</table>
