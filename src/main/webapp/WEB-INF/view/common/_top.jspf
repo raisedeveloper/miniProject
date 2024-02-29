@@ -5,19 +5,19 @@
 <nav class="py-2 bg-body-tertiary border-bottom">
     <div class="container d-flex flex-wrap">
       <ul class="nav me-auto">
-        <li class="nav-item"><a href="/mp/1.mini/board/listAuction" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/mp/mini/main" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">FAQs</a></li>
         <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">About</a></li>
       </ul>
       <ul class="nav">
         <c:if test="${empty sessUid}">
-				<a class="nav-link" href="/mp/1.mini/user/login" style="color: navy;">
+				<a class="nav-link" href="/mp/mini/user/login" style="color: navy;">
 					<i class="fas fa-sign-in-alt"></i>로그인
 				</a>
-        <li class="nav-item"><a href="/mp/1.mini/user/register" class="nav-link link-body-emphasis px-2">회원가입</a></li>
+        <li class="nav-item"><a href="/mp/mini/user/register" class="nav-link link-body-emphasis px-2">회원가입</a></li>
 		</c:if> 
 		<c:if test="${not empty sessUid}">
-			<a class="nav-link" href="/mp/1.mini/user/logout" style="color: navy;">
+			<a class="nav-link" href="/mp/mini/user/logout" style="color: navy;">
 				<i class="fas fa-sign-out-alt"></i>로그아웃
 			</a>
 		</c:if>
@@ -30,7 +30,7 @@
 <header class="py-3 border-bottom">
     <div class="container d-flex flex-wrap align-items-center justify-content-between">
         <ul class="nav">
-            <span><a href="#"><img src="/mp/img/Taruwa_LOGO.png" height="100"></a></span>
+            <span><a href="/mp/mini/main"><img src="/mp/img/Taruwa_LOGO.png" height="100"></a></span>
         </ul>
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex align-items-center">
             <input type="search" class="form-control me-2" placeholder="Search..." aria-label="Search">

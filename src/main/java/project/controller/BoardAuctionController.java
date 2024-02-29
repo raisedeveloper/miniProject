@@ -14,15 +14,11 @@ import project.service.BoardAuctionService;
 import project.service.BoardAuctionServiceImpl;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet({ "/mini/board/listAuction", "/mini/board/insertAuction", "/mini/board/updateAuction",
-		"/mini/board/deleteAuction", "/mini/board/detailAuction", "/mini/board/listBuy",
-		"/mini/board/insertBuy", "/mini/board/updateBuy", "/mini/board/deleteBuy", "/mini/board/detailBuy" })
+@WebServlet("/mini/board/*")
 public class BoardAuctionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BoardAuctionService bAucSvc = new BoardAuctionServiceImpl();

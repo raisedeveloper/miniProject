@@ -11,6 +11,9 @@
 td, th {
 	text-align: center;
 }
+.bottom-container {
+	margin-top: 20px; /* 페이지네이션 위 여백 조정 */
+}
 </style>
 <script>
 	function search() {
@@ -24,7 +27,7 @@ td, th {
 <body>
 	<%@ include file="../common/_top.jspf"%>
 
-	<div class="container" style="margin-top: 50px">
+	<div class="container" style="margin-top: 50px;">
 		<div class="row">
 
 			<div class="col-9">
@@ -33,8 +36,8 @@ td, th {
 						<td style="width: 52%; text-align: left">
 							<h3>
 								<strong class="me-5"><i class="fa-solid fa-person-skiing" style="padding-right: 10px; "></i> 역경매 - 렌탈</strong> <span
-									style="font-size: 16px"><a
-									href="/mp/mini/board/insertAuction"><i
+									style="font-size: 16px">
+									<a href="/mp/mini/board/insertAuction"><i
 										class="fa-solid fa-pen-to-square"></i>렌탈 등록</a></span>
 							</h3>
 						</td>
@@ -47,13 +50,16 @@ td, th {
 									${field eq 'processContent' ? 'selected' : ''}>내용</option>
 
 						</select></td>
-						<td style="width: 24%"><c:if test="${empty query}">
+						<td style="width: 24%">
+							<c:if test="${empty query}">
 								<input class="form-control" type="text" id="query"
 									placeholder="검색할 내용">
-							</c:if> <c:if test="${not empty query}">
+							</c:if> 
+							<c:if test="${not empty query}">
 								<input class="form-control" type="text" id="query"
 									value="${query}">
-							</c:if></td>
+							</c:if>
+						</td>
 						<td style="width: 8%">
 							<button class="btn btn-outline-primary" onclick="search()">검색</button>
 						</td>
@@ -104,6 +110,9 @@ td, th {
 				</ul>
 
 			</div>
+			<c:if test="${not empty sessUid}">
+				<%@ include file="../common/_aside.jspf"%>
+			</c:if>
 		</div>
 	</div>
 

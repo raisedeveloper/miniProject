@@ -10,7 +10,7 @@
 </head>
 <body class="bg-light">
 <%@ include file="../common/_top.jspf"%>
-  <div class="container" style="margin-top: 270px;">
+  <div class="container" style="margin-top: 50px;">
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4">
@@ -45,10 +45,10 @@
             	<%-- 소셜 계정 로그인  --%>
               <span class="me-3">소셜 계정으로 로그인</span>
               <span>
-                <a class="ms-2" href="#"><img src="/jw/img/google-logo.png" height="32"></a>
-                <a class="ms-2" href="#"><img src="/jw/img/github-logo.png" height="32"></a>
-                <a class="ms-2" href="#"><img src="/jw/img/naver-logo.jpg" height="32"></a>
-                <a class="ms-2" href="#"><img src="/jw/img/kakao-logo.png" height="32"></a>
+                <a class="ms-2" href="#"><img src="/mp/img/google-logo.png" height="32"></a>
+                <a class="ms-2" href="#"><img src="/mp/img/github-logo.png" height="32"></a>
+                <a class="ms-2" href="#"><img src="/mp/img/naver-logo.jpg" height="32"></a>
+                <a class="ms-2" href="#"><img src="/mp/img/kakao-logo.png" height="32"></a>
               </span>
             </div>
           </div>
