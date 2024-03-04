@@ -31,7 +31,7 @@ CREATE TABLE BoardAuction
 (
 	bid int NOT NULL AUTO_INCREMENT,
 	uid varchar(12) NOT NULL,
-	applTime datetime NOT NULL,
+	applTime datetime NOT NULL DEFAULT (CURRENT_DATE),
 	nickName varchar(16),
 	processTitle varchar(64),
 	processContent varchar(256),
@@ -47,7 +47,7 @@ CREATE TABLE BoardBuy
 (
 	bid int NOT NULL AUTO_INCREMENT,
 	uid varchar(12) NOT NULL,
-	applTime datetime NOT NULL,
+	applTime datetime NOT NULL DEFAULT (CURRENT_DATE),
 	nickName varchar(16),
 	processTitle varchar(64),
 	processContent varchar(256),
